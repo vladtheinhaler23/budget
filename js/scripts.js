@@ -23,6 +23,9 @@ $(document).ready(function() {
     newUser = new User(inputtedName, inputtedBudget);
     newUser.spent = 0;
 
+    $("#displayUser").empty();
+    $("#displayUser").append("<h3>" + newUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: " + newUser.budget + "</h4>");
+
     console.log(newUser);
 
   });
@@ -33,6 +36,9 @@ $(document).ready(function() {
     var inputtedAmount = parseInt($("#newSpent").val());
 
     newUser.addToSpent(inputtedAmount);
+
+    $("#displaySpent").empty();
+    $("#displaySpent").append("<h4>" + "Amount Spent: " + newUser.spent + "<h4>");
 
     console.log(newUser.spent);
 
