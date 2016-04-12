@@ -1,4 +1,4 @@
-//BUSINESS LOGIC
+//BUSINESS LOGIC  
 
 function User(name, budget, spent) {
   this.name = name;
