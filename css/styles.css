@@ -4,6 +4,13 @@ text-align: center;
 
 }
 
+#userInfo{
+  display: none;
+}
+#transaction_output{
+  display: none;
+}
+
 .logo {
   display: block;
   margin-left: auto;
