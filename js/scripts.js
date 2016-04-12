@@ -5,3 +5,7 @@ function User(name, budget, spent) {
   this.budget = budget;
   this.spent = spent;
 }
+
+User.prototype.addToSpent = function(amountSpent) {
+  this.spent += amountSpent;
+}
