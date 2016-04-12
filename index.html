@@ -7,46 +7,58 @@
   <script src="js/scripts.js"></script>
   <title>BUDget</title>
 </head>
-<body>
-  <div id="bkgr">
-    <div class="jumbotron" id="logoJumbotron">
-      <img class="logo" src="img/budget.png" alt="budget logo"/>
-    </div>
+<div id="bkgr">
+  <body>
+    <img class="logo" src="img/budget.png" alt="budget logo"/>
     <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <form id="newUser">
-            <div class="form-group">
-              <label for="newUserName">First name</label>
-              <input type="text" class="form-control" id="newUserName">
-            </div>
-            <div class="form-group">
-              <label for="newUserBudget">Budget Amount:</label>
-              <input type="text" class="form-control" id="newUserBudget">
-            </div>
-            <button id="newUserBtn" type="submit" class="btn">Start</button>
-          </form>
-          <form id="newTransaction">
-            <div class="form-group">
-              <label for="newSpent">How much did you spend?</label>
-              <input type="text" class="form-control" id="newSpent">
-            </div>
-            <button id="newSpentBtn" type="submit" class="btn">Add Transaction</button>
-          </form>
+      <div class="jumbotron" id="disclaimer">
+        <h1>Disclaimer</h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron" id="userInfo">
+        <div class="row">
+          <div class="col-xs-6">
+            <form id="newUser">
+              <div class="form-group">
+                <label for="newUserName">First name</label>
+                <input type="text" class="form-control" id="newUserName">
+              </div>
+              <div class="form-group">
+                <label for="newUserBudget">Budget Amount:</label>
+                <input type="text" class="form-control" id="newUserBudget">
+              </div>
+              <button id="newUserBtn" type="submit" class="btn">Start</button>
+            </form>
+          </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div id="displayUser">
+      <div class="jumbotron" id="transaction_output">
+        <div class="row">
+          <div class="col-xs-6">
+            <form id="newTransaction">
+              <div class="form-group">
+                <label for="newSpent">How much did you spend?</label>
+                <input type="text" class="form-control" id="newSpent">
+              </div>
+              <button id="newSpentBtn" type="submit" class="btn">Add Transaction</button>
+            </form>
+          </div>
+          <div class="col-xs-6">
+            <div id="displayUser">
 
-        </div>
+            </div>
+            <div id="displaySpent">
 
-        <div id="displaySpent">
-
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-</body>
+
+  </body>
+</div>
 
 </html>
