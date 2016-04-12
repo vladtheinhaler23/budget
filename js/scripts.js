@@ -8,6 +8,7 @@ function User(name, budget, spent) {
 
 User.prototype.addToSpent = function(amountSpent) {
   this.spent += amountSpent;
+
 }
 //USER INTERFACE
 
@@ -19,12 +20,22 @@ $(document).ready(function() {
     var inputtedName = $("#newUserName").val();
     var inputtedBudget = parseInt($("#newUserBudget").val());
 
-    var newUser = new User(inputtedName, inputtedBudget);
+    newUser = new User(inputtedName, inputtedBudget);
+    newUser.spent = 0;
 
     console.log(newUser);
 
   });
 
+  $("form#newTransaction").submit(function(event) {
+    event.preventDefault();
 
+    var inputtedAmount = parseInt($("#newSpent").val());
+
+    newUser.addToSpent(inputtedAmount);
+
+    console.log(newUser.spent);
+
+  })
 
 });
