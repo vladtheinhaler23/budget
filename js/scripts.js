@@ -1,4 +1,4 @@
-//BUSINESS LOGIC  
+//BUSINESS LOGIC
 
 function User(name, budget, spent) {
   this.name = name;
@@ -13,6 +13,17 @@ User.prototype.addToSpent = function(amountSpent) {
 //USER INTERFACE
 
 $(document).ready(function() {
+
+
+
+  $("#over21").click(function(event) {
+    event.preventDefault();
+
+    $("#userInfo").show();
+    $("#transaction_output").show();
+    $("#disclaimer").hide();
+
+  })
 
   $("form#newUser").submit(function(event) {
     event.preventDefault();

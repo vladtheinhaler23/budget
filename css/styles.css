@@ -5,6 +5,7 @@ text-align: center;
 }
 
 #userInfo{
+  margin-top: 50px;
   display: none;
 }
 #transaction_output{
