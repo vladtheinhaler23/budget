@@ -4,6 +4,14 @@ text-align: center;
 
 }
 
+#userInfo{
+  margin-top: 50px;
+  display: none;
+}
+#transaction_output{
+  display: none;
+}
+
 .logo {
   display: block;
   margin-left: auto;
