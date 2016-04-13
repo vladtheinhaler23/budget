@@ -25,10 +25,12 @@ $(document).ready(function() {
 
   if (localStorage.getObject("newUser") === null && localStorage.getObject("returnUser") != null) {
     returnUser = localStorage.getObject("returnUser")
+    var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
     $("#displayUser").empty();
     $("#displayUser").append("<h3>" + returnUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: " + returnUser.budget + "</h4>");
     $("#displaySpent").empty();
     $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
+    $(".progress-bar").css('width', returnUserProgress+'%').attr('aria-valuenow', returnUserProgress);
   }
   console.log(localStorage);
 
@@ -85,7 +87,7 @@ $(document).ready(function() {
 
         localStorage.setObject('returnUser', returnUser);
 
-        console.log(localStorage);
+        console.log(newAmount);
       } else {
 
         alert("Please enter a transaction amount.");
@@ -97,6 +99,12 @@ $(document).ready(function() {
 
     }
 
+    var spentValue = 0;
+    if (newAmount > spentValue) {
+      spentValue = (newAmount / returnUser.budget) * 100;
+    }
+    $(".progress-bar").css('width', spentValue+'%').attr('aria-valuenow', spentValue);
+    console.log(spentValue);
   })
 
   $("#resetStorage").click(function(event) {
@@ -109,7 +117,17 @@ $(document).ready(function() {
       $("#displayUser").empty();
     }
 
+    $(".progress-bar").css('width', 0+'%').attr('aria-valuenow', 0);
+    $("#newUserName").val("");
+    $("#newUserBudget").val("");
+    $("#newSpent").val("");
+
   })
 
 
 });
+
+
+// if (returnUserProgress > returnUser.budget) {
+//   $(".progress-bar-warning").css('width', 0+'%').attr('aria-valuenow', 0);
+// }
