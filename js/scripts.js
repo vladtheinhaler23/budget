@@ -25,10 +25,12 @@ $(document).ready(function() {
 
   if (localStorage.getObject("newUser") === null && localStorage.getObject("returnUser") != null) {
     returnUser = localStorage.getObject("returnUser")
+    var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
     $("#displayUser").empty();
     $("#displayUser").append("<h3>" + returnUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: " + returnUser.budget + "</h4>");
     $("#displaySpent").empty();
     $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
+    $(".progress-bar").css('width', returnUserProgress+'%').attr('aria-valuenow', returnUserProgress);
   }
   console.log(localStorage);
 
@@ -93,7 +95,7 @@ $(document).ready(function() {
 
         localStorage.setObject('returnUser', returnUser);
 
-        console.log(localStorage);
+        console.log(newAmount);
       } else {
 
         alert("Please enter a transaction amount.");
@@ -105,6 +107,26 @@ $(document).ready(function() {
 
     }
 
+    var spentValue = 0;
+    var overValue =0;
+    if (newAmount > spentValue && newAmount < returnUser.budget) {
+      spentValue = (newAmount / returnUser.budget) * 100;
+      $("#underBudget").css('width', spentValue+'%');
+    } else if (newAmount > returnUser.budget) {
+
+      overValue = (((newAmount - returnUser.budget) / returnUser.budget) * 100) * 0.1;
+        if (overValue < 25) {
+          $("#underBudget").css('width', 75+'%');
+          $("#overBudget").css('width', overValue+'%');
+        } else {
+          alert("You are too far over budget. What's the point?")
+        }
+
+    }
+
+
+    console.log(spentValue);
+    console.log(overValue);
   })
 
   $("#resetStorage").click(function(event) {
@@ -116,6 +138,11 @@ $(document).ready(function() {
       $("#displaySpent").empty();
       $("#displayUser").empty();
     }
+
+    $(".progress-bar").css('width', 0+'%').attr('aria-valuenow', 0);
+    $("#newUserName").val("");
+    $("#newUserBudget").val("");
+    $("#newSpent").val("");
 
   })
 
