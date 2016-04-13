@@ -1,11 +1,17 @@
+.navbar {
+  margin-bottom: 50px;
+}
+.navbarCont {
+  margin-bottom: 100px;
+}
+
 .navbar-inverse {
   background: transparent;
 }
 
-.jumbotron#disclaimer {
+#disclaimer {
 margin-top: 50px;
 text-align: center;
-
 }
 
 #userInfo{
@@ -36,11 +42,11 @@ text-align: center;
   z-index: -1;
 }
 
-button#newSpentBtn.btn {
+#newSpentBtn {
 margin-top: 5px;
 }
 
-button#newUserBtn {
+#newUserBtn {
 margin-bottom: 5px;
 }
 
