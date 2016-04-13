@@ -1,7 +1,14 @@
 .jumbotron#disclaimer {
 margin-top: 50px;
 text-align: center;
+}
 
+.jumbotron#transaction_output{
+  margin-top: 50px;
+}
+
+#progBar {
+  background-color: green;
 }
 
 #userInfo{
@@ -33,11 +40,15 @@ text-align: center;
 }
 
 button#newSpentBtn.btn {
-margin-top: 5px;
+/*margin-top: 5px;*/
 }
 
 button#newUserBtn {
 margin-bottom: 5px;
+}
+
+button#resetStorage {
+  margin-top: 10px;
 }
 
 label {

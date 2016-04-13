@@ -36,8 +36,10 @@ $(document).ready(function() {
     event.preventDefault();
 
     $("#userInfo").show();
-    $("#transaction_output").show();
     $("#disclaimer").hide();
+///////// We don't need this to show yet. We need it to show after user info is inputted /////////
+    // $("#transaction_output").show();
+
 
   })
 
@@ -57,9 +59,11 @@ $(document).ready(function() {
       localStorage.setObject('returnUser', returnUser);
 
       $("#displayUser").empty();
-      $("#displayUser").append("<h3>" + returnUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: " + returnUser.budget + "</h4>");
+      $("#displayUser").append("<h3>" + returnUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: $" + returnUser.budget + "</h4>");
       $("#displaySpent").empty();
-      $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
+      $("#displaySpent").append("<h4>" + "Amount Spent: $" + returnUser.spent + "<h4>");
+      $("#transaction_output").show();
+      $("#userInfo").hide();
 
       console.log(returnUser);
       console.log(localStorage);
@@ -70,8 +74,12 @@ $(document).ready(function() {
 
   });
 
+
+
+
   $("form#newTransaction").submit(function(event) {
     event.preventDefault();
+
 
 
     if (localStorage.getObject("returnUser") != null) {
