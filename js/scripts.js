@@ -9,12 +9,28 @@ function User(name, budget, spent) {
 User.prototype.addToSpent = function(amountSpent) {
   this.spent += amountSpent;
 
+
+}
+
+Storage.prototype.setObject = function(key, object) {
+  this.setItem(key, JSON.stringify(object));
+}
+
+Storage.prototype.getObject = function(key) {
+  return JSON.parse(this.getItem(key));
 }
 //USER INTERFACE
 
 $(document).ready(function() {
 
-
+  if (localStorage.getObject("newUser") === null && localStorage.getObject("returnUser") != null) {
+    returnUser = localStorage.getObject("returnUser")
+    $("#displayUser").empty();
+    $("#displayUser").append("<h3>" + returnUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: " + returnUser.budget + "</h4>");
+    $("#displaySpent").empty();
+    $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
+  }
+  console.log(localStorage);
 
   $("#over21").click(function(event) {
     event.preventDefault();
@@ -28,31 +44,72 @@ $(document).ready(function() {
   $("form#newUser").submit(function(event) {
     event.preventDefault();
 
-    var inputtedName = $("#newUserName").val();
-    var inputtedBudget = parseInt($("#newUserBudget").val());
+    if ($("#newUserName").val() && $("#newUserBudget").val()) {
 
-    newUser = new User(inputtedName, inputtedBudget);
-    newUser.spent = 0;
+      var inputtedName = $("#newUserName").val();
+      var inputtedBudget = parseInt($("#newUserBudget").val());
 
-    $("#displayUser").empty();
-    $("#displayUser").append("<h3>" + newUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: " + newUser.budget + "</h4>");
 
-    console.log(newUser);
+      returnUser = new User(inputtedName, inputtedBudget);
+      returnUser.spent = 0;
+
+      localStorage.clear();
+      localStorage.setObject('returnUser', returnUser);
+
+      $("#displayUser").empty();
+      $("#displayUser").append("<h3>" + returnUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: " + returnUser.budget + "</h4>");
+      $("#displaySpent").empty();
+      $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
+
+      console.log(returnUser);
+      console.log(localStorage);
+
+    } else {
+      alert("Please enter user info");
+    }
 
   });
 
   $("form#newTransaction").submit(function(event) {
     event.preventDefault();
 
-    var inputtedAmount = parseInt($("#newSpent").val());
 
-    newUser.addToSpent(inputtedAmount);
+    if (localStorage.getObject("returnUser") != null) {
+      if ($("#newSpent").val()) {
 
-    $("#displaySpent").empty();
-    $("#displaySpent").append("<h4>" + "Amount Spent: " + newUser.spent + "<h4>");
+        var inputtedAmount = parseInt($("#newSpent").val());
+        var newAmount = returnUser.spent += inputtedAmount;
 
-    console.log(newUser.spent);
+        $("#displaySpent").empty();
+        $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
+
+        localStorage.setObject('returnUser', returnUser);
+
+        console.log(localStorage);
+      } else {
+
+        alert("Please enter a transaction amount.");
+
+      }
+    } else {
+
+      alert("Fail")
+
+    }
 
   })
+
+  $("#resetStorage").click(function(event) {
+    event.preventDefault();
+
+    var reset = confirm("Do you want to reset and create a new user?")
+    if (reset == true) {
+      localStorage.clear();
+      $("#displaySpent").empty();
+      $("#displayUser").empty();
+    }
+
+  })
+
 
 });
