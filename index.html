@@ -4,6 +4,8 @@
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/jquery.js"></script>
+  <script src="css/js/bootstrap.js"></script>
+
   <script src="js/scripts.js"></script>
   <title>BUDget</title>
 </head>
@@ -82,10 +84,10 @@
             </div>
 
             <div id="myProgressbar" class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+              <div id="underBudget" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width: 0%;">
                 <span class="sr-only">0% Complete</span>
               </div>
-              <div class="progress-bar-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+              <div id="overBudget" class="progress-bar progress-bar-danger" role="progressbar" style="width: 0%;">
                 <span class="sr-only">0% Complete</span>
               </div>
             </div>

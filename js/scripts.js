@@ -100,11 +100,25 @@ $(document).ready(function() {
     }
 
     var spentValue = 0;
-    if (newAmount > spentValue) {
+    var overValue =0;
+    if (newAmount > spentValue && newAmount < returnUser.budget) {
       spentValue = (newAmount / returnUser.budget) * 100;
+      $("#underBudget").css('width', spentValue+'%');
+    } else if (newAmount > returnUser.budget) {
+
+      overValue = (((newAmount - returnUser.budget) / returnUser.budget) * 100) * 0.1;
+        if (overValue < 25) {
+          $("#underBudget").css('width', 75+'%');
+          $("#overBudget").css('width', overValue+'%');
+        } else {
+          alert("You are too far over budget. What's the point?")
+        }
+
     }
-    $(".progress-bar").css('width', spentValue+'%').attr('aria-valuenow', spentValue);
+
+
     console.log(spentValue);
+    console.log(overValue);
   })
 
   $("#resetStorage").click(function(event) {
@@ -126,8 +140,3 @@ $(document).ready(function() {
 
 
 });
-
-
-// if (returnUserProgress > returnUser.budget) {
-//   $(".progress-bar-warning").css('width', 0+'%').attr('aria-valuenow', 0);
-// }
