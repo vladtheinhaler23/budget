@@ -137,12 +137,15 @@ $(document).ready(function() {
       localStorage.clear();
       $("#displaySpent").empty();
       $("#displayUser").empty();
+      $(".progress-bar").css('width', 0+'%').attr('aria-valuenow', 0);
+      $("#newUserName").val("");
+      $("#newUserBudget").val("");
+      $("#newSpent").val("");
+      $("#transaction_output").hide();
+      $("#userInfo").show();
     }
 
-    $(".progress-bar").css('width', 0+'%').attr('aria-valuenow', 0);
-    $("#newUserName").val("");
-    $("#newUserBudget").val("");
-    $("#newSpent").val("");
+
 
   })
 
