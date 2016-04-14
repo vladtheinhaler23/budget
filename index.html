@@ -70,6 +70,7 @@
             </div>
           </div>
           <div class="jumbotron" id="transaction_output">
+
             <div class="row">
               <div class="col-xs-6">
                 <form id="newTransaction">
@@ -77,9 +78,10 @@
                     <label for="newSpent">How much did you spend?</label>
                     <input type="text" class="form-control" id="newSpent">
                   </div>
-                  <button id="newSpentBtn" type="submit" class="btn">Add Transaction</button>
+                  <input id="newSpentBtn" type="image" src="budget-logo-button-small.png" alt="Submit">
+                  <h4 class="buttonText">ENTER AMOUNT</h4>
                 </form>
-                <button id="resetStorage" type="submit" class="btn">Reset Storage</button>
+
               </div>
               <div class="col-xs-6">
                 <div id="displayUser">
@@ -88,9 +90,14 @@
                 <div id="displaySpent">
 
                 </div>
+                <div class="container">
+                  <input id="resetStorage" type="image" src="budget-logo-button-small.png" alt="Submit">
+                  <h4 class="buttonText">NEW USER</h4>
+                </div>
               </div>
-            </div>
 
+
+            </div>
             <div id="myProgressbar" class="progress">
               <div id="underBudget" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width: 0%;">
                 <span class="sr-only">0% Complete</span>
@@ -99,6 +106,7 @@
                 <span class="sr-only">0% Complete</span>
               </div>
             </div>
+
 
           </div>
         </div>

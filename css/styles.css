@@ -24,7 +24,7 @@ body {
   margin-top: 50px;
   display: none;
   background-color: white;
-
+  padding: 100px;
   border: 3px outset black;
   border-radius: 25%;
   box-shadow: 0px 0px 7px 3px black;
@@ -105,7 +105,14 @@ h3 {
 #newUserBtn {
 
 }
-
+.progress {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  height: 75px;
+  border-radius: 50%;
+  border: 3px solid black;
+  box-shadow: 0px 0px 4px 3px black;
+}
 
 button#resetStorage {
   margin-top: 10px;
