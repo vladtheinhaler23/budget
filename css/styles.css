@@ -14,7 +14,7 @@ body {
   margin-top: 50px;
   text-align: center;
   background-color: #ffffff;
-  opacity: 0.80;
+  padding: 100px;
   border-radius: 50%;
   border: 3px outset black;
   box-shadow: 0px 0px 7px 3px black;
@@ -24,7 +24,7 @@ body {
   margin-top: 50px;
   display: none;
   background-color: white;
-  opacity: 0.80;
+
   border: 3px outset black;
   border-radius: 25%;
   box-shadow: 0px 0px 7px 3px black;
@@ -36,7 +36,7 @@ body {
   margin-top: 50px;
   display: none;
   background-color: white;
-  opacity: 0.80;
+
   border: 3px outset black;
   box-shadow: 0px 0px 7px 3px black;
   font-size: 30px;
