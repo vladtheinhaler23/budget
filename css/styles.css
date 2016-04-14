@@ -1,3 +1,7 @@
+body {
+  background-color: #bcdb93
+}
+
 .navbar {
   margin-bottom: 50px;
 }
@@ -5,18 +9,20 @@
   margin-bottom: 100px;
 }
 
-.navbar-inverse {
-  background: transparent;
-}
 
 #disclaimer {
-margin-top: 50px;
-text-align: center;
+  margin-top: 50px;
+  text-align: center;
+  background-color: #ffffff;
+  opacity: 0.80;
+  border-radius: 50%;
+  border: 3px outset black;
+  box-shadow: 2px 2px 5px 3px black;
 }
 
 .jumbotron#transaction_output{
   margin-top: 50px;
-    display: none;
+  display: none;
 }
 
 #userInfo{
@@ -32,25 +38,27 @@ text-align: center;
   max-height: 300px;
   margin-top: 30px;
   border-radius: 180px;
+  box-shadow: 2px 2px 5px 3px #8ED081;
 }
 
-#bkgr {
+/*#bkgr {
   /*background: url(../Cannabis-plants-wallpaper-HD.jpg);*/
-  background-size: cover;
+  /*background-size: cover;
   background-color: #bcdb93 !important;
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: -1;
-}
+}*/*/
 
 #newSpentBtn {
-margin-top: 5px;
+  margin-top: 5px;
 }
 
 #newUserBtn {
-margin-bottom: 5px;
+  margin-bottom: 5px;
 }
+
 
 button#resetStorage {
   margin-top: 10px;
@@ -58,4 +66,96 @@ button#resetStorage {
 
 label {
   margin-top: 5px;
+}
+
+/*NAVBAR CSS*/
+
+.navbar-default {
+  background-color: #303031;
+  border-color: #8ed081;
+}
+.navbar-default .navbar-brand {
+  color: #aad698;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #797596;
+}
+.navbar-default .navbar-text {
+  color: #aad698;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #aad698;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #797596;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #303031;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #aad698;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #797596;
+  background-color: #8ed081;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #8ed081;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #797596;
+  background-color: #8ed081;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #797596;
+  background-color: #8ed081;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #797596;
+  background-color: #8ed081;
+}
+.navbar-default .navbar-toggle {
+  border-color: #8ed081;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #8ed081;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #aad698;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #aad698;
+}
+.navbar-default .navbar-link {
+  color: #aad698;
+}
+.navbar-default .navbar-link:hover {
+  color: #797596;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #aad698;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #797596;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #797596;
+    background-color: #8ed081;
+  }
 }
