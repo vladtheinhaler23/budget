@@ -30,7 +30,10 @@ $(document).ready(function() {
     $("#displayUser").append("<h3>" + returnUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: " + returnUser.budget + "</h4>");
     $("#displaySpent").empty();
     $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
-    $(".progress-bar").css('width', returnUserProgress+'%').attr('aria-valuenow', returnUserProgress);
+    $("#disclaimer").hide();
+    $("#transaction_output").show();
+    $("#userInfo").hide();
+    $(".progress-bar").css('width', returnUserProgress+'%');
   }
   console.log(localStorage);
 
@@ -61,9 +64,9 @@ $(document).ready(function() {
       localStorage.setObject('returnUser', returnUser);
 
       $("#displayUser").empty();
-      $("#displayUser").append("<h3>" + returnUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: $" + returnUser.budget + "</h4>");
+      $("#displayUser").append("<h3 id='content'>" + returnUser.name + "</h3>" + "<br>" + "<h4>" + "Budget Amount: $" + returnUser.budget + "</h4>");
       $("#displaySpent").empty();
-      $("#displaySpent").append("<h4>" + "Amount Spent: $" + returnUser.spent + "<h4>");
+      $("#displaySpent").append("<h4>" + "Amount Spent: $" + returnUser.spent + "</h4>");
       $("#transaction_output").show();
       $("#userInfo").hide();
 
