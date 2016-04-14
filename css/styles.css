@@ -26,7 +26,7 @@ body {
   margin-top: 50px;
   display: none;
   background-color: white;
-  padding: 100px;
+  padding: 300px;
   border: 3px outset black;
   border-radius: 25%;
   box-shadow: 0px 0px 7px 3px black;
@@ -42,6 +42,7 @@ body {
   box-shadow: 0px 0px 7px 3px black;
   font-size: 30px;
   text-align: center;
+  min-height: 600px;
 }
 
 #newUserName {
@@ -93,9 +94,7 @@ h3 {
   margin-top: 5px;
 }
 
-#newUserBtn {
 
-}
 .progress {
   margin-top: 100px;
   margin-bottom: 30px;
@@ -109,10 +108,156 @@ button#resetStorage {
   margin-top: 10px;
 }
 
-label {
+#over21Label  {
   margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+}
+#over21Label:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
 }
 
+#over21:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#over21 {
+  border-radius: 50%;
+  border: 5px solid black;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#over21:active {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+
+}
+#over21:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+#newUserBtnLabel  {
+  margin-top: 10px;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+
+}
+#newUserBtnLabel:hover {
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+  color: #bcdb93
+
+}
+#newUserBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#newUserBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+#newUserBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#newSpentBtnLabel  {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+}
+#newSpentBtnLabel:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+#resetStorageLabel  {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+}
+#resetStorageLabel:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+#newSpentBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#newSpentBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#newSpentBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+#resetStorage {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#resetStorage:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}
+#resetStorage:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
 /*NAVBAR CSS*/
 
 .navbar-default {
@@ -188,15 +333,10 @@ label {
 .navbar-default .navbar-link:hover {
   color: #797596;
 }
-/*////////////////////////Changes by Jake start here////////////////////////////*/
 div.collapse.navbar-collapse{
   margin-right: 100px;
 }
-/*
-label.buttonText {
-  text-align: inherit;
-}*/
-/*////////////////////////Changes by Jake end here////////////////////////////*/
+
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
