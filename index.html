@@ -13,7 +13,7 @@
   <body>
 
       <div class="container navbarCont">
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-default navbar-fixed-top">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-    <img class="logo" src="img/budget.png" alt="budget logo"/>
+    <img class="logo" src="budget-logo.jpg" alt="budget logo"/>
     <div class="container">
       <div class="jumbotron" id="disclaimer">
         <h1>Disclaimer</h1>
@@ -42,28 +42,35 @@
           Budget does not promote the illegal sale or use of cannabis in any way.
           I have read and acknowledge these statements.</p>
 
-          <button id="over21" type="submit" class="btn">Yes I am over 21</button>
+        <input id="over21" type="image" src="budget-logo-button.png" alt="Submit">
+        <h4 class="buttonText">ENTER</h4>
         </div>
 
         <div class="container">
           <div class="jumbotron" id="userInfo">
             <div class="row">
               <div class="col-xs-6">
+                <h1>Enter your user info and set a budget amount to get started using BUDget.</h1>
+              </div>
+              <div class="col-xs-6">
                 <form id="newUser">
                   <div class="form-group">
-                    <label for="newUserName">First name</label>
-                    <input type="text" class="form-control" id="newUserName">
+                    <label for="newUserName">First name:</label>
+                    <input type="text" class="form-control" placeholder="Enter your name here..." id="newUserName">
                   </div>
                   <div class="form-group">
                     <label for="newUserBudget">Budget Amount:</label>
-                    <input type="text" class="form-control" id="newUserBudget">
+                    <input type="text" class="form-control" placeholder="Enter you budget amount..." id="newUserBudget">
                   </div>
-                  <button id="newUserBtn" type="submit" class="btn">Start</button>
+                  <input id="newUserBtn" type="image" src="budget-logo-button-small.png" alt="Submit">
+                  <h4 class="buttonText">GET STARTED</h4>
                 </form>
               </div>
+
             </div>
           </div>
           <div class="jumbotron" id="transaction_output">
+
             <div class="row">
               <div class="col-xs-6">
                 <form id="newTransaction">
@@ -71,9 +78,10 @@
                     <label for="newSpent">How much did you spend?</label>
                     <input type="text" class="form-control" id="newSpent">
                   </div>
-                  <button id="newSpentBtn" type="submit" class="btn">Add Transaction</button>
+                  <input id="newSpentBtn" type="image" src="budget-logo-button-small.png" alt="Submit">
+                  <h4 class="buttonText">ENTER AMOUNT</h4>
                 </form>
-                <button id="resetStorage" type="submit" class="btn">Reset Storage</button>
+
               </div>
               <div class="col-xs-6">
                 <div id="displayUser">
@@ -82,9 +90,14 @@
                 <div id="displaySpent">
 
                 </div>
+                <div class="container">
+                  <input id="resetStorage" type="image" src="budget-logo-button-small.png" alt="Submit">
+                  <h4 class="buttonText">NEW USER</h4>
+                </div>
               </div>
-            </div>
 
+
+            </div>
             <div id="myProgressbar" class="progress">
               <div id="underBudget" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width: 0%;">
                 <span class="sr-only">0% Complete</span>
@@ -93,6 +106,7 @@
                 <span class="sr-only">0% Complete</span>
               </div>
             </div>
+
 
           </div>
         </div>
