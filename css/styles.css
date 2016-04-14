@@ -10,8 +10,6 @@ body {
 .navbarCont {
   margin-bottom: 100px;
 }
-
-
 #disclaimer {
   margin-top: 50px;
   text-align: center;
@@ -21,19 +19,31 @@ body {
   border: 3px outset black;
   box-shadow: 0px 0px 7px 3px black;
 }
-
-#transaction_output{
+#transaction_input{
   margin-top: 50px;
   display: none;
   background-color: white;
-  padding: 300px;
+  padding: 75px;
   border: 3px outset black;
-  border-radius: 25%;
+  border-radius: 100%;
   box-shadow: 0px 0px 7px 3px black;
   font-size: 30px;
   text-align: center;
-}
+  max-height: 600px;
+  min-height: 400px;
+  min-width: 800px;
 
+}
+#userBudget{
+  margin-top: 50px;
+  background-color: white;
+  border: 3px outset black;
+  box-shadow: 0px 0px 7px 3px black;
+  font-size: 30px;
+  text-align: center;
+  min-width: 800px;
+
+}
 #userInfo{
   margin-top: 50px;
   display: none;
@@ -44,7 +54,6 @@ body {
   text-align: center;
   min-height: 600px;
 }
-
 #newUserName {
   background-color: #ffffff;
   border: 2px inset black;
@@ -59,15 +68,23 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 #newSpent {
   background-color: #ffffff;
   border: 2px inset black;
   box-shadow: 1px 1px 2px 1px green;
   margin-top: 10px;
   margin-bottom: 10px;
+  max-width: 210px;
+  min-width: 210px;
+  min-height: 100px;
+  max-height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 50px;
 }
+#newTransaction {
 
+}
 h4 {
   font-size: 30px;
 }
@@ -77,7 +94,6 @@ h3 {
 .buttonText {
   font-size: 20px;
 }
-
 .logo {
   display: block;
   margin-left: auto;
@@ -90,13 +106,8 @@ h3 {
   padding: 7px;
 }
 
-#newSpentBtn {
-  margin-top: 5px;
-}
-
-
 .progress {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 30px;
   height: 75px;
   border-radius: 50%;
@@ -104,9 +115,6 @@ h3 {
   box-shadow: 0px 0px 4px 3px black;
 }
 
-button#resetStorage {
-  margin-top: 10px;
-}
 
 #over21Label  {
   margin-top: 5px;
@@ -120,7 +128,6 @@ button#resetStorage {
   cursor: pointer;
   text-shadow: 2px 2px black;
 }
-
 #over21:hover {
   border-radius: 50%;
   border: 5px solid #bcdb93;
@@ -194,20 +201,35 @@ button#resetStorage {
   display: block;
   font-size: 30px;
   text-shadow: 2px 2px #bcdb93;
+  max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #newSpentBtnLabel:hover {
   color: #bcdb93;
   cursor: pointer;
   text-shadow: 2px 2px black;
 }
-#resetStorageLabel  {
+/*#resetStorageLabel  {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+}*/
+/*#resetStorageLabel:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}*/
+#newTransactionBtnLabel {
   margin-top: 5px;
   color: black;
   display: block;
   font-size: 30px;
   text-shadow: 2px 2px #bcdb93;
 }
-#resetStorageLabel:hover {
+#newTransactionBtnLabel:hover {
   color: #bcdb93;
   cursor: pointer;
   text-shadow: 2px 2px black;
@@ -218,6 +240,7 @@ button#resetStorage {
   padding: 10px;
   margin-top: 25px;
   margin-top: 25px;
+
 }
 #newSpentBtn:hover {
   border-radius: 50%;
@@ -236,20 +259,45 @@ button#resetStorage {
   box-shadow: 0px 0px 4px 2px lightblue;
 }
 #resetStorage {
+  border-style: none;
+  background-color: #303031;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+
+}
+/*#resetStorage:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+}*/
+/*#resetStorage:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}*/
+#newTransactionBtn {
   border: 5px solid gray;
   border-radius: 50%;
   padding: 10px;
   margin-top: 25px;
   margin-top: 25px;
+
 }
-#resetStorage:hover {
+#newTransactionBtn:hover {
   border-radius: 50%;
   border: 5px solid #bcdb93;
   padding: 10px;
   margin-top: 25px;
   margin-top: 25px;
 }
-#resetStorage:focus {
+#newTransactionBtn:focus {
   border-radius: 50%;
   border: 5px solid #bcdb93;
   padding: 10px;
@@ -258,6 +306,23 @@ button#resetStorage {
   outline: none;
   box-shadow: 0px 0px 4px 2px lightblue;
 }
+
+#displayUserh3 {
+  text-align: left;
+}
+.glyphicon {
+  color: white;
+  line-height: 30px;
+  background-color: #303031;
+  font-size: 25px;
+}
+.glyphicon:hover {
+  color: #797596;
+  line-height: 30px;
+  background-color: #303031;
+  font-size: 25px;
+}
+
 /*NAVBAR CSS*/
 
 .navbar-default {
@@ -334,7 +399,7 @@ button#resetStorage {
   color: #797596;
 }
 div.collapse.navbar-collapse{
-  margin-right: 100px;
+  margin-right: 30px;
 }
 
 

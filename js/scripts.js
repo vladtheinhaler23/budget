@@ -9,7 +9,6 @@ function User(name, budget, spent) {
 User.prototype.addToSpent = function(amountSpent) {
   this.spent += amountSpent;
 
-
 }
 
 Storage.prototype.setObject = function(key, object) {
@@ -27,21 +26,23 @@ $(document).ready(function() {
     returnUser = localStorage.getObject("returnUser")
     var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
     $("#displayUser").empty();
-    $("#displayUser").append("<h3>" + returnUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: " + returnUser.budget + "</h4>");
+    $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
     $("#displaySpent").empty();
-    $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
+    $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
     $("#disclaimer").hide();
-    $("#transaction_output").show();
+    $("#transaction_input").show();
     $("#userInfo").hide();
     $(".progress-bar").css('width', returnUserProgress+'%');
   }
   console.log(localStorage);
+  $("#userBudget").hide();
 
   $("#over21").click(function(event) {
     event.preventDefault();
 
     $("#userInfo").show();
     $("#disclaimer").hide();
+    $("#userBudget").hide();
 ///////// We don't need this to show yet. We need it to show after user info is inputted /////////
     // $("#transaction_output").show();
 
@@ -67,7 +68,7 @@ $(document).ready(function() {
       $("#displayUser").append("<h3 id='content'>" + returnUser.name + "</h3>" + "<br>" + "<h4>" + "Budget Amount: $" + returnUser.budget + "</h4>");
       $("#displaySpent").empty();
       $("#displaySpent").append("<h4>" + "Amount Spent: $" + returnUser.spent + "</h4>");
-      $("#transaction_output").show();
+      $("#transaction_input").show();
       $("#userInfo").hide();
 
       console.log(returnUser);
@@ -95,7 +96,8 @@ $(document).ready(function() {
 
         $("#displaySpent").empty();
         $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
-
+        $("#userBudget").show();
+        $("#transaction_input").hide();
         localStorage.setObject('returnUser', returnUser);
 
         console.log(newAmount);
@@ -144,13 +146,18 @@ $(document).ready(function() {
       $("#newUserName").val("");
       $("#newUserBudget").val("");
       $("#newSpent").val("");
-      $("#transaction_output").hide();
+      $("#transaction_input").hide();
       $("#userInfo").show();
     }
 
 
 
   })
+  $("#newTransactionBtn").click(function(event) {
+    event.preventDefault();
 
+    $("#transaction_input").show();
+
+  })
 
 });
