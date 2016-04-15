@@ -216,7 +216,7 @@ h3 {
   display: block;
   font-size: 30px;
   text-shadow: 2px 2px #bcdb93;
-  
+
 
 }
 #recentPurchaseBtnLabel:hover {
@@ -224,13 +224,32 @@ h3 {
   cursor: pointer;
   text-shadow: 2px 2px black;
 }
-#newTransactionBtnLabel {
+#recentPurchaseBtnLabel  {
   margin-top: 5px;
   color: black;
   display: block;
   font-size: 30px;
   text-shadow: 2px 2px #bcdb93;
 
+
+}
+#newMonthBtnLabel:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
+#newMonthBtnLabel {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+
+}
+#newTransactionBtnLabel {
+  color: black;
+  cursor: pointer;
+  text-shadow: 2px 2px #bcdb93;
 }
 #newTransactionBtnLabel:hover {
   color: #bcdb93;
@@ -321,6 +340,31 @@ h3 {
   box-shadow: 0px 0px 4px 2px lightblue;
 }
 
+#newMonthBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+
+
+}
+#newMonthBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+
+}
+#newMonthBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+
 
 #displayUserh3 {
   text-align: left;
@@ -342,6 +386,17 @@ h3 {
   margin-left: 20px;
   margin-right: 20px;
 
+}
+
+#returnUserBudget {
+  margin-left: 10px;
+  max-width: 575px;
+}
+.modal-header {
+  text-align: center;
+}
+.modal-body {
+  text-align: center;
 }
 
 /*NAVBAR CSS*/
