@@ -35,16 +35,30 @@ $(document).ready(function() {
       $("#userBudget").show();
     } else if (returnUser.spent >= returnUser.budget) {
       overValue = (((returnUser.spent - returnUser.budget) / returnUser.budget) * 100) * 0.1;
-      $("#underBudget").css('width', 75+'%');
-      $("#overBudget").css('width', overValue+'%');
-      $("#displayUser").empty();
-      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
-      $("#displaySpent").empty();
-      $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
-      $("#disclaimer").hide();
-      $("#transaction_input").hide();
-      $("#userInfo").hide();
-      $("#userBudget").show();
+      if (overValue >= 25) {
+        $("#underBudget").css('width', 75+'%');
+        $("#overBudget").css('width', 25+'%');
+        $("#displayUser").empty();
+        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
+        $("#displaySpent").empty();
+        $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
+        $("#disclaimer").hide();
+        $("#transaction_input").hide();
+        $("#userInfo").hide();
+        $("#userBudget").show();
+      } else {
+        $("#underBudget").css('width', 75+'%');
+        $("#overBudget").css('width', overValue+'%');
+        $("#displayUser").empty();
+        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
+        $("#displaySpent").empty();
+        $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
+        $("#disclaimer").hide();
+        $("#transaction_input").hide();
+        $("#userInfo").hide();
+        $("#userBudget").show();
+      }
+
     } else {
       var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
       $("#displayUser").empty();
