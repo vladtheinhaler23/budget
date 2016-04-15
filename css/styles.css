@@ -246,6 +246,11 @@ h3 {
   text-shadow: 2px 2px #bcdb93;
 
 }
+#newTransactionBtnLabel {
+  color: black;
+  cursor: pointer;
+  text-shadow: 2px 2px #bcdb93;
+}
 #newTransactionBtnLabel:hover {
   color: #bcdb93;
   cursor: pointer;
