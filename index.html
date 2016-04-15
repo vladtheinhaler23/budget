@@ -73,6 +73,26 @@
           </div>
         </div>
       </div>
+
+      <div class="container">
+        <div class="jumbotron" id="userBudget">
+          <div id="displayUser"></div>
+          <div id="myProgressbar" class="progress">
+            <div id="underBudget" class="progress-bar progress-bar-success" role="progressbar" style="width: 0%;">
+              <span class="sr-only">0% Complete</span>
+            </div>
+            <div id="overBudget" class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" style="width: 0%;">
+              <span class="sr-only">0% Complete</span>
+            </div>
+          </div>
+          <div id="displaySpent"></div>
+          <div id="newTransactionBtnCont" class="container">
+            <input id="newTransactionBtn" type="image" src="budget-logo-button-small.png" alt="Submit">
+            <label id="newTransactionBtnLabel" for="newTransaactionBtn">NEW TRANSACTION</label>
+
+          </div>
+        </div>
+      </div>
       <div class="container">
         <div class="jumbotron" id="transaction_input">
           <div class="container">
@@ -89,25 +109,6 @@
             </form>
           </div>
 
-        </div>
-      </div>
-      <div class="container">
-        <div class="jumbotron" id="userBudget">
-          <div id="displayUser"></div>
-          <div id="myProgressbar" class="progress">
-            <div id="underBudget" class="progress-bar progress-bar-success" role="progressbar" style="width: 0%;">
-              <span class="sr-only">0% Complete</span>
-            </div>
-            <div id="overBudget" class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" style="width: 0%;">
-              <span class="sr-only">0% Complete</span>
-            </div>
-          </div>
-          <div id="displaySpent"></div>
-          <div class="container">
-            <input id="newTransactionBtn" type="image" src="budget-logo-button-small.png" alt="Submit">
-            <label id="newTransactionBtnLabel" for="newTransaactionBtn">NEW TRANSACTION</label>
-
-          </div>
         </div>
       </div>
   </body>
