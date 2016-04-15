@@ -27,9 +27,9 @@ $(document).ready(function() {
     if (returnUser.spent === returnUser.budget) {
       $("#underBudget").css('width', 100+'%');
       $("#displayUser").empty();
-      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "<h3>");
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
       $("#displaySpent").empty();
-      $("#displaySpent").append("<h4>" + "BUDGET USED: $" + returnUser.spent + ".00" + "<h4>");
+      $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
       $("#recentPurchaseAmount").empty();
       $("#recentPurchaseAmount").append(recentPurchase);
       $("#disclaimer").hide();
@@ -42,9 +42,9 @@ $(document).ready(function() {
         $("#underBudget").css('width', 75+'%');
         $("#overBudget").css('width', 25+'%');
         $("#displayUser").empty();
-        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "<h3>");
+        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
         $("#displaySpent").empty();
-        $("#displaySpent").append("<h4>" + "BUDGET USED: $" + returnUser.spent + ".00" + "<h4>");
+        $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
         $("#recentPurchaseAmount").empty();
         $("#recentPurchaseAmount").append(recentPurchase);
         $("#disclaimer").hide();
@@ -55,9 +55,9 @@ $(document).ready(function() {
         $("#underBudget").css('width', 75+'%');
         $("#overBudget").css('width', overValue+'%');
         $("#displayUser").empty();
-        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + "<h3>");
+        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + "<h3/>");
         $("#displaySpent").empty();
-        $("#displaySpent").append("<h4>" + "BUDGET USED: $" + returnUser.spent + ".00" + "<h4>");
+        $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
         $("#recentPurchaseAmount").empty();
         $("#recentPurchaseAmount").append(recentPurchase);
         $("#disclaimer").hide();
@@ -69,9 +69,9 @@ $(document).ready(function() {
     } else {
       var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
       $("#displayUser").empty();
-      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "<h3>");
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
       $("#displaySpent").empty();
-      $("#displaySpent").append("<h4>" + "BUDGET USED: $" + returnUser.spent + ".00" + "<h4>");
+      $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
       $("#disclaimer").hide();
       $("#transaction_input").hide();
       $("#userInfo").hide();
@@ -109,9 +109,9 @@ $(document).ready(function() {
       localStorage.setObject('returnUser', returnUser);
 
       $("#displayUser").empty();
-      $("#displayUser").append("<h3 id='content'>" + returnUser.name + "</h3>" + "<br>" + "<h4>" + "Budget Amount: $" + returnUser.budget +".00" + "</h4>");
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "</h3>" + "<br>" + "<h4>" + "Budget Amount: $" + returnUser.budget +".00" + "</h4>");
       $("#displaySpent").empty();
-      $("#displaySpent").append("<h4>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
+      $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
       $("#transaction_input").hide();
       $("#userInfo").hide();
       $("#userBudget").show();
@@ -143,7 +143,7 @@ $(document).ready(function() {
 
 
         $("#displaySpent").empty();
-        $("#displaySpent").append("<h4>" + "BUDGET USED: $" + newAmount + ".00" + "<h4>");
+        $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + newAmount + ".00" + "</h4>");
         $("#recentPurchaseAmount").empty();
         $("#recentPurchaseAmount").append(recentPurchase);
         $("#userBudget").show();
@@ -220,7 +220,7 @@ $(document).ready(function() {
     localStorage.setObject('returnUser', returnUser);
 
     $("#displaySpent").empty();
-    $("#displaySpent").append("<h4>" + "BUDGET USED: $" + returnUser.spent +  ".00" + "<h4>");
+    $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent +  ".00" + "</h4>");
 
     console.log(recentPurchase);
 
@@ -254,9 +254,9 @@ $(document).ready(function() {
     localStorage.setObject('returnUser', returnUser);
 
     $("#displayUser").empty();
-    $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:  $" + returnUser.budget + ".00" + "<h3>");
+    $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:  $" + returnUser.budget + ".00" + "</h3>");
     $("#displaySpent").empty();
-    $("#displaySpent").append("<h4>" + "BUDGET USED: $" + returnUser.spent +".00" + "<h4>");
+    $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent +".00" + "</h4>");
     $("#recentPurchaseAmount").empty();
     $("#recentPurchaseAmount").append("0");
     $("#underBudget").css('width', 0+'%');
