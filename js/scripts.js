@@ -30,7 +30,7 @@ $(document).ready(function() {
       $("#underBudgetProgress").empty();
       $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
       $("#displayUser").empty();
-      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name.toUpperCase() + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
       $("#displaySpent").empty();
       $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
       $("#recentPurchaseAmount").empty();
@@ -50,7 +50,7 @@ $(document).ready(function() {
         $("#overBudgetProgress").empty();
         $("#overBudgetProgress").append("$" + displayOverValue + ".00");
         $("#displayUser").empty();
-        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
+        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name.toUpperCase()  + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
         $("#displaySpent").empty();
         $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
         $("#recentPurchaseAmount").empty();
@@ -67,7 +67,7 @@ $(document).ready(function() {
         $("#overBudgetProgress").empty();
         $("#overBudgetProgress").append("$" + displayOverValue + ".00");
         $("#displayUser").empty();
-        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + "<h3/>");
+        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name.toUpperCase() + "'s Budget: $" + returnUser.budget + "<h3/>");
         $("#displaySpent").empty();
         $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
         $("#recentPurchaseAmount").empty();
@@ -81,7 +81,7 @@ $(document).ready(function() {
     } else if (returnUser.spent === 0) {
       var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
       $("#displayUser").empty();
-      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name.toUpperCase() + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
       $("#displaySpent").empty();
       $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
       $("#disclaimer").hide();
@@ -93,7 +93,7 @@ $(document).ready(function() {
     } else {
       var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
       $("#displayUser").empty();
-      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name.toUpperCase() + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
       $("#displaySpent").empty();
       $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
       $("#disclaimer").hide();
@@ -106,7 +106,7 @@ $(document).ready(function() {
     }
 
 
-    
+
 
   }
   console.log(localStorage);
@@ -138,7 +138,7 @@ $(document).ready(function() {
       localStorage.setObject('returnUser', returnUser);
 
       $("#displayUser").empty();
-      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name.toUpperCase() + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
       $("#displaySpent").empty();
       $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
       $("#transaction_input").hide();
@@ -157,7 +157,7 @@ $(document).ready(function() {
 
 
   var recentPurchase = 0;
-  $("form#newTransaction").submit(function(event) {
+  $("#newSpentBtn").click(function(event) {
     event.preventDefault();
 
 
@@ -253,8 +253,6 @@ $(document).ready(function() {
   $("#newTransactionBtn").click(function(event) {
     event.preventDefault();
 
-    $("#transaction_input").show();
-    $("#newTransactionBtnCont").hide()
   })
   $("#recentPurchaseBtn").click(function(event) {
     event.preventDefault();
@@ -303,7 +301,7 @@ $(document).ready(function() {
 
   })
 
-  $("#modalSubmit").click(function(event) {
+  $("#newBudgetBtn").click(function(event) {
     event.preventDefault();
     recentPurchase = localStorage.getObject("recentPurchase")
     returnNewBudget = $("#returnUserBudget").val();
@@ -313,7 +311,7 @@ $(document).ready(function() {
     localStorage.setObject('returnUser', returnUser);
 
     $("#displayUser").empty();
-    $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:  $" + returnUser.budget + ".00" + "</h3>");
+    $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name.toUpperCase() + "'s Budget:  $" + returnUser.budget + ".00" + "</h3>");
     $("#displaySpent").empty();
     $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent +".00" + "</h4>");
     $("#recentPurchaseAmount").empty();
