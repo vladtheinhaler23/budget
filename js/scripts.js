@@ -26,6 +26,8 @@ $(document).ready(function() {
     $("#recentPurchaseAmount").append("0");
     if (returnUser.spent === returnUser.budget) {
       $("#underBudget").css('width', 100+'%');
+      $("#underBudgetProgress").empty();
+      $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
       $("#displayUser").empty();
       $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
       $("#displaySpent").empty();
@@ -37,10 +39,15 @@ $(document).ready(function() {
       $("#userInfo").hide();
       $("#userBudget").show();
     } else if (returnUser.spent >= returnUser.budget) {
+      displayOverValue = returnUser.spent - returnUser.budget;
       overValue = (((returnUser.spent - returnUser.budget) / returnUser.budget) * 100) * 0.1;
       if (overValue >= 25) {
         $("#underBudget").css('width', 75+'%');
+        $("#underBudgetProgress").empty();
+        $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
         $("#overBudget").css('width', 25+'%');
+        $("#overBudgetProgress").empty();
+        $("#overBudgetProgress").append("$" + displayOverValue + ".00");
         $("#displayUser").empty();
         $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
         $("#displaySpent").empty();
@@ -53,7 +60,11 @@ $(document).ready(function() {
         $("#userBudget").show();
       } else {
         $("#underBudget").css('width', 75+'%');
+        $("#underBudgetProgress").empty();
+        $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
         $("#overBudget").css('width', overValue+'%');
+        $("#overBudgetProgress").empty();
+        $("#overBudgetProgress").append("$" + displayOverValue + ".00");
         $("#displayUser").empty();
         $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + "<h3/>");
         $("#displaySpent").empty();
@@ -77,6 +88,8 @@ $(document).ready(function() {
       $("#userInfo").hide();
       $("#userBudget").show();
       $("#underBudget").css('width', returnUserProgress+'%');
+      $("#underBudgetProgress").empty();
+      $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
     }
 
   }
@@ -168,16 +181,30 @@ $(document).ready(function() {
     var overValue = 0;
     if (newAmount === returnUser.budget) {
       $("#underBudget").css('width', 100+'%');
+      $("#underBudgetProgress").empty();
+      $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
     } else if (newAmount > spentValue && newAmount < returnUser.budget) {
       spentValue = (newAmount / returnUser.budget) * 100;
       $("#underBudget").css('width', spentValue+'%');
+      $("#underBudgetProgress").empty();
+      $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
     } else if (newAmount > returnUser.budget) {
       overValue = (((newAmount - returnUser.budget) / returnUser.budget) * 100) * 0.1;
         if (overValue < 25) {
+          displayOverValue = returnUser.spent - returnUser.budget;
           $("#underBudget").css('width', 75+'%');
           $("#overBudget").css('width', overValue+'%');
+          $("#underBudgetProgress").empty();
+          $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
+          $("#overBudgetProgress").empty();
+          $("#overBudgetProgress").append("$" + displayOverValue + ".00");
         } else {
+          displayOverValue = returnUser.spent - returnUser.budget;
           alert("You are too far over budget. What's the point?")
+          $("#underBudgetProgress").empty();
+          $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
+          $("#overBudgetProgress").empty();
+          $("#overBudgetProgress").append("$" + displayOverValue + ".00");
         }
     }
 
@@ -193,7 +220,9 @@ $(document).ready(function() {
       localStorage.clear();
       $("#displaySpent").empty();
       $("#displayUser").empty();
-      $(".progress-bar").css('width', 0+'%').attr('aria-valuenow', 0);
+      $(".progress-bar").css('width', 0+'%');
+      $("#underBudgetProgress").empty();
+      $("#overBudgetProgress").empty();
       $("#newUserName").val("");
       $("#newUserBudget").val("");
       $("#newSpent").val("");
@@ -228,16 +257,30 @@ $(document).ready(function() {
     var overValue = 0;
     if (newAmount == returnUser.budget) {
       $("#underBudget").css('width', 100+'%');
+      $("#underBudgetProgress").empty();
+      $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
     } else if (newAmount > spentValue && newAmount < returnUser.budget) {
       spentValue = (newAmount / returnUser.budget) * 100;
       $("#underBudget").css('width', spentValue+'%');
+      $("#underBudgetProgress").empty();
+      $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
     } else if (newAmount > returnUser.budget) {
       overValue = (((newAmount - returnUser.budget) / returnUser.budget) * 100) * 0.1;
         if (overValue < 25) {
+          displayOverValue = returnUser.spent - returnUser.budget;
           $("#underBudget").css('width', 75+'%');
           $("#overBudget").css('width', overValue+'%');
+          $("#underBudgetProgress").empty();
+          $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
+          $("#overBudgetProgress").empty();
+          $("#overBudgetProgress").append("$" + displayOverValue + ".00");
         } else {
+          displayOverValue = returnUser.spent - returnUser.budget;
           alert("You are too far over budget. What's the point?")
+          $("#underBudgetProgress").empty();
+          $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
+          $("#overBudgetProgress").empty();
+          $("#overBudgetProgress").append("$" + displayOverValue + ".00");
         }
     }
 
@@ -260,7 +303,10 @@ $(document).ready(function() {
     $("#recentPurchaseAmount").empty();
     $("#recentPurchaseAmount").append("0");
     $("#underBudget").css('width', 0+'%');
+    $("#underBudgetProgress").empty();
     $("#overBudget").css('width', 0+'%');
+    $("#overBudgetProgress").empty();
+
 
     console.log(returnUser.budget);
 
