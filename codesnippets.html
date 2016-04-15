@@ -1,2 +1,24 @@
 aria-valuenow="0" aria-valuemin="0" aria-valuemax="999"
 aria-valuenow="0" aria-valuemin="0" aria-valuemax="999"
+
+
+if (newAmount > spentValue && newAmount < returnUser.budget) {
+  if(newAmount === returnUser.budget) {
+    $("#underBudget").css('width', 100+'%');
+    console.log("1", newAmount);
+    console.log("2", returnUser.budget);
+  } else {
+    spentValue = (newAmount / returnUser.budget) * 100;
+    $("#underBudget").css('width', spentValue+'%');
+  }
+} else if (newAmount > returnUser.budget) {
+
+  overValue = (((newAmount - returnUser.budget) / returnUser.budget) * 100) * 0.1;
+    if (overValue < 25) {
+      $("#underBudget").css('width', 75+'%');
+      $("#overBudget").css('width', overValue+'%');
+    } else {
+      alert("You are too far over budget. What's the point?")
+    }
+
+}
