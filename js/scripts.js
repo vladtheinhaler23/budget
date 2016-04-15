@@ -6,11 +6,6 @@ function User(name, budget, spent) {
   this.spent = spent;
 }
 
-User.prototype.addToSpent = function(amountSpent) {
-  this.spent += amountSpent;
-
-
-}
 
 Storage.prototype.setObject = function(key, object) {
   this.setItem(key, JSON.stringify(object));
@@ -23,17 +18,60 @@ Storage.prototype.getObject = function(key) {
 
 $(document).ready(function() {
 
+
   if (localStorage.getObject("newUser") === null && localStorage.getObject("returnUser") != null) {
     returnUser = localStorage.getObject("returnUser")
-    var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
-    $("#displayUser").empty();
-    $("#displayUser").append("<h3>" + returnUser.name + "<h3>" + "<br>" + "<h4>" + "Budget Amount: " + returnUser.budget + "</h4>");
-    $("#displaySpent").empty();
-    $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
-    $("#disclaimer").hide();
-    $("#transaction_output").show();
-    $("#userInfo").hide();
-    $(".progress-bar").css('width', returnUserProgress+'%');
+    recentPurchase = localStorage.getObject("recentPurchase")
+    console.log(recentPurchase)
+    if (returnUser.spent === returnUser.budget) {
+      $("#underBudget").css('width', 100+'%');
+      $("#displayUser").empty();
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
+      $("#displaySpent").empty();
+      $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
+      $("#disclaimer").hide();
+      $("#transaction_input").hide();
+      $("#userInfo").hide();
+      $("#userBudget").show();
+    } else if (returnUser.spent >= returnUser.budget) {
+      overValue = (((returnUser.spent - returnUser.budget) / returnUser.budget) * 100) * 0.1;
+      if (overValue >= 25) {
+        $("#underBudget").css('width', 75+'%');
+        $("#overBudget").css('width', 25+'%');
+        $("#displayUser").empty();
+        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
+        $("#displaySpent").empty();
+        $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
+        $("#disclaimer").hide();
+        $("#transaction_input").hide();
+        $("#userInfo").hide();
+        $("#userBudget").show();
+      } else {
+        $("#underBudget").css('width', 75+'%');
+        $("#overBudget").css('width', overValue+'%');
+        $("#displayUser").empty();
+        $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
+        $("#displaySpent").empty();
+        $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
+        $("#disclaimer").hide();
+        $("#transaction_input").hide();
+        $("#userInfo").hide();
+        $("#userBudget").show();
+      }
+
+    } else {
+      var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
+      $("#displayUser").empty();
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
+      $("#displaySpent").empty();
+      $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
+      $("#disclaimer").hide();
+      $("#transaction_input").hide();
+      $("#userInfo").hide();
+      $("#userBudget").show();
+      $("#underBudget").css('width', returnUserProgress+'%');
+    }
+
   }
   console.log(localStorage);
 
@@ -42,8 +80,8 @@ $(document).ready(function() {
 
     $("#userInfo").show();
     $("#disclaimer").hide();
-///////// We don't need this to show yet. We need it to show after user info is inputted /////////
-    // $("#transaction_output").show();
+    $("#userBudget").hide();
+
 
 
   })
@@ -67,8 +105,9 @@ $(document).ready(function() {
       $("#displayUser").append("<h3 id='content'>" + returnUser.name + "</h3>" + "<br>" + "<h4>" + "Budget Amount: $" + returnUser.budget + "</h4>");
       $("#displaySpent").empty();
       $("#displaySpent").append("<h4>" + "Amount Spent: $" + returnUser.spent + "</h4>");
-      $("#transaction_output").show();
+      $("#transaction_input").hide();
       $("#userInfo").hide();
+      $("#userBudget").show();
 
       console.log(returnUser);
       console.log(localStorage);
@@ -81,7 +120,7 @@ $(document).ready(function() {
 
 
 
-
+  var recentPurchase = 0;
   $("form#newTransaction").submit(function(event) {
     event.preventDefault();
 
@@ -93,12 +132,17 @@ $(document).ready(function() {
         var inputtedAmount = parseInt($("#newSpent").val());
         var newAmount = returnUser.spent += inputtedAmount;
 
+       recentPurchase = parseInt($("#newSpent").val());
+
         $("#displaySpent").empty();
         $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
-
+        $("#userBudget").show();
+        $("#transaction_input").hide();
+        $("#newTransactionBtnCont").show();
         localStorage.setObject('returnUser', returnUser);
+        localStorage.setObject('recentPurchase', recentPurchase)
 
-        console.log(newAmount);
+        console.log(recentPurchase);
       } else {
 
         alert("Please enter a transaction amount.");
@@ -111,12 +155,13 @@ $(document).ready(function() {
     }
 
     var spentValue = 0;
-    var overValue =0;
-    if (newAmount > spentValue && newAmount < returnUser.budget) {
+    var overValue = 0;
+    if (newAmount === returnUser.budget) {
+      $("#underBudget").css('width', 100+'%');
+    } else if (newAmount > spentValue && newAmount < returnUser.budget) {
       spentValue = (newAmount / returnUser.budget) * 100;
       $("#underBudget").css('width', spentValue+'%');
     } else if (newAmount > returnUser.budget) {
-
       overValue = (((newAmount - returnUser.budget) / returnUser.budget) * 100) * 0.1;
         if (overValue < 25) {
           $("#underBudget").css('width', 75+'%');
@@ -124,12 +169,10 @@ $(document).ready(function() {
         } else {
           alert("You are too far over budget. What's the point?")
         }
-
     }
 
 
-    console.log(spentValue);
-    console.log(overValue);
+
   })
 
   $("#resetStorage").click(function(event) {
@@ -144,13 +187,48 @@ $(document).ready(function() {
       $("#newUserName").val("");
       $("#newUserBudget").val("");
       $("#newSpent").val("");
-      $("#transaction_output").hide();
+      $("#transaction_input").hide();
       $("#userInfo").show();
+      $("#userBudget").hide();
     }
 
 
 
   })
+  $("#newTransactionBtn").click(function(event) {
+    event.preventDefault();
 
+    $("#transaction_input").show();
+    $("#newTransactionBtnCont").hide()
+  })
+  $("#recentPurchaseBtn").click(function(event) {
+    event.preventDefault();
+
+
+    recentPurchase = localStorage.getObject("recentPurchase")
+    newAmount = returnUser.spent += recentPurchase;
+    localStorage.setObject('returnUser', returnUser);
+
+    console.log(recentPurchase);
+
+    var spentValue = 0;
+    var overValue = 0;
+    if (newAmount === returnUser.budget) {
+      $("#underBudget").css('width', 100+'%');
+    } else if (newAmount > spentValue && newAmount < returnUser.budget) {
+      spentValue = (newAmount / returnUser.budget) * 100;
+      $("#underBudget").css('width', spentValue+'%');
+    } else if (newAmount > returnUser.budget) {
+      overValue = (((newAmount - returnUser.budget) / returnUser.budget) * 100) * 0.1;
+        if (overValue < 25) {
+          $("#underBudget").css('width', 75+'%');
+          $("#overBudget").css('width', overValue+'%');
+        } else {
+          alert("You are too far over budget. What's the point?")
+        }
+    }
+
+
+  })
 
 });
