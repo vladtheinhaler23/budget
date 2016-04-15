@@ -210,24 +210,27 @@ h3 {
   cursor: pointer;
   text-shadow: 2px 2px black;
 }
-/*#resetStorageLabel  {
+#recentPurchaseBtnLabel  {
   margin-top: 5px;
   color: black;
   display: block;
   font-size: 30px;
   text-shadow: 2px 2px #bcdb93;
-}*/
-/*#resetStorageLabel:hover {
+  
+
+}
+#recentPurchaseBtnLabel:hover {
   color: #bcdb93;
   cursor: pointer;
   text-shadow: 2px 2px black;
-}*/
+}
 #newTransactionBtnLabel {
   margin-top: 5px;
   color: black;
   display: block;
   font-size: 30px;
   text-shadow: 2px 2px #bcdb93;
+
 }
 #newTransactionBtnLabel:hover {
   color: #bcdb93;
@@ -266,28 +269,14 @@ h3 {
 
 
 }
-/*#resetStorage:hover {
-  border-radius: 50%;
-  border: 5px solid #bcdb93;
-  padding: 10px;
-  margin-top: 25px;
-  margin-top: 25px;
-}*/
-/*#resetStorage:focus {
-  border-radius: 50%;
-  border: 5px solid #bcdb93;
-  padding: 10px;
-  margin-top: 25px;
-  margin-top: 25px;
-  outline: none;
-  box-shadow: 0px 0px 4px 2px lightblue;
-}*/
+
 #newTransactionBtn {
   border: 5px solid gray;
   border-radius: 50%;
   padding: 10px;
   margin-top: 25px;
   margin-top: 25px;
+
 
 }
 #newTransactionBtn:hover {
@@ -307,6 +296,32 @@ h3 {
   box-shadow: 0px 0px 4px 2px lightblue;
 }
 
+#recentPurchaseBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+
+
+}
+#recentPurchaseBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+
+}
+#recentPurchaseBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+
+
 #displayUserh3 {
   text-align: left;
 }
@@ -321,6 +336,12 @@ h3 {
   line-height: 30px;
   background-color: #303031;
   font-size: 25px;
+}
+#newTransactionBtnCont {
+  display: inline;
+  margin-left: 20px;
+  margin-right: 20px;
+
 }
 
 /*NAVBAR CSS*/
