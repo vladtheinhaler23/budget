@@ -19,6 +19,7 @@ Storage.prototype.getObject = function(key) {
 $(document).ready(function() {
 
 
+
   if (localStorage.getObject("newUser") === null && localStorage.getObject("returnUser") != null) {
     returnUser = localStorage.getObject("returnUser")
     recentPurchase = localStorage.getObject("recentPurchase")
@@ -77,6 +78,18 @@ $(document).ready(function() {
         $("#userBudget").show();
       }
 
+    } else if (returnUser.spent === 0) {
+      var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
+      $("#displayUser").empty();
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
+      $("#displaySpent").empty();
+      $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
+      $("#disclaimer").hide();
+      $("#transaction_input").hide();
+      $("#userInfo").hide();
+      $("#userBudget").show();
+      $("#underBudget").css('width', returnUserProgress+'%');
+      $("#underBudgetProgress").empty();
     } else {
       var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
       $("#displayUser").empty();
@@ -91,6 +104,9 @@ $(document).ready(function() {
       $("#underBudgetProgress").empty();
       $("#underBudgetProgress").append("$" + returnUser.spent + ".00");
     }
+
+
+    
 
   }
   console.log(localStorage);
@@ -122,7 +138,7 @@ $(document).ready(function() {
       localStorage.setObject('returnUser', returnUser);
 
       $("#displayUser").empty();
-      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "</h3>" + "<br>" + "<h4>" + "Budget Amount: $" + returnUser.budget +".00" + "</h4>");
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget: $" + returnUser.budget + ".00" + "</h3>");
       $("#displaySpent").empty();
       $("#displaySpent").append("<h4 id='displayUserh4'>" + "BUDGET USED: $" + returnUser.spent + ".00" + "</h4>");
       $("#transaction_input").hide();
@@ -289,7 +305,7 @@ $(document).ready(function() {
 
   $("#modalSubmit").click(function(event) {
     event.preventDefault();
-
+    recentPurchase = localStorage.getObject("recentPurchase")
     returnNewBudget = $("#returnUserBudget").val();
 
     returnUser.budget = returnNewBudget;
@@ -306,6 +322,8 @@ $(document).ready(function() {
     $("#underBudgetProgress").empty();
     $("#overBudget").css('width', 0+'%');
     $("#overBudgetProgress").empty();
+    $("#recentPurchaseAmount").empty();
+    $("#recentPurchaseAmount").append(recentPurchase);
 
 
     console.log(returnUser.budget);
