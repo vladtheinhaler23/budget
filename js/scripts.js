@@ -231,4 +231,22 @@ $(document).ready(function() {
 
   })
 
+  $("#modalSubmit").click(function(event) {
+    event.preventDefault();
+
+    returnNewBudget = $("#returnUserBudget").val();
+
+    returnUser.budget = returnNewBudget;
+    returnUser.spent = 0;
+    localStorage.setObject('returnUser', returnUser);
+
+    $("#displayUser").empty();
+    $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
+    $("#displaySpent").empty();
+    $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
+
+    console.log(returnUser.budget);
+
+
+  })
 });
