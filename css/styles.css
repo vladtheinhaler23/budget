@@ -381,6 +381,18 @@ body {
 #displayUserh4 {
   font-size: 30px;
 }
+#underBudgetProgress {
+  line-height: 65px;
+  font-size: 20px;
+  color: black;
+  text-shadow: 1px 1px white;
+}
+#overBudgetProgress {
+  line-height: 65px;
+  font-size: 20px;
+  color: black;
+  text-shadow: 1px 1px white;
+}
 .glyphicon {
   color: white;
   line-height: 30px;

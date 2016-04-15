@@ -22,3 +22,7 @@ if (newAmount > spentValue && newAmount < returnUser.budget) {
     }
 
 }
+$("#underBudgetProgress").empty();
+$("#underBudgetProgress").append(returnUser.spent);
+$("#overBudgetProgress").empty();
+$("#overBudgetProgress").append(displayOverValue);
