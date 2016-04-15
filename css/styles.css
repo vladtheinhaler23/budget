@@ -2,6 +2,24 @@ body {
   background-color: #bcdb93
 }
 
+p {
+font-family: 'Slabo 27px', serif;
+}
+
+li.comingSoon {
+  font-family: 'Slabo 27px', serif;
+}
+
+h2.teamName {
+  font-family: 'Slabo 27px', serif;
+  font-size: 70px;
+}
+
+i {
+  font-size: 50px;
+  text-align: center;
+}
+
 .navbar {
   margin-bottom: 50px;
   margin-left: auto;
@@ -18,7 +36,16 @@ body {
   border-radius: 50%;
   border: 3px outset black;
   box-shadow: 0px 0px 7px 3px black;
+  font-size: 99px;
+
 }
+
+.jumbotron#disclaimer{
+  font-family: 'Slabo 27px', serif;
+  font-size: 99px;
+}
+
+
 #userInfoH1 {
 
 }
