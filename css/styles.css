@@ -19,6 +19,22 @@ body {
   border: 3px outset black;
   box-shadow: 0px 0px 7px 3px black;
 }
+#userInfoH1 {
+
+}
+#userInfoH2 {
+  font-size: 30px;
+  text-align: left;
+}
+#userInfoH3 {
+ text-align: left;
+}
+#userInfoP {
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 #transaction_input{
   margin-top: 50px;
   display: none;
@@ -82,15 +98,7 @@ body {
   margin-right: auto;
   font-size: 50px;
 }
-#newTransaction {
 
-}
-h4 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 40px;
-}
 .buttonText {
   font-size: 20px;
 }
@@ -368,6 +376,10 @@ h3 {
 
 #displayUserh3 {
   text-align: left;
+  font-size: 40px
+}
+#displayUserh4 {
+  font-size: 30px;
 }
 .glyphicon {
   color: white;
