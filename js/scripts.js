@@ -24,18 +24,44 @@ $(document).ready(function() {
 
   if (localStorage.getObject("newUser") === null && localStorage.getObject("returnUser") != null) {
     returnUser = localStorage.getObject("returnUser")
-    var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
-    $("#displayUser").empty();
-    $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
-    $("#displaySpent").empty();
-    $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
-    $("#disclaimer").hide();
-    $("#transaction_input").show();
-    $("#userInfo").hide();
-    $(".progress-bar").css('width', returnUserProgress+'%');
+    if (returnUser.spent === returnUser.budget) {
+      $("#underBudget").css('width', 100+'%');
+      $("#displayUser").empty();
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
+      $("#displaySpent").empty();
+      $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
+      $("#disclaimer").hide();
+      $("#transaction_input").hide();
+      $("#userInfo").hide();
+      $("#userBudget").show();
+    } else if (returnUser.spent >= returnUser.budget) {
+      overValue = (((returnUser.spent - returnUser.budget) / returnUser.budget) * 100) * 0.1;
+      $("#underBudget").css('width', 75+'%');
+      $("#overBudget").css('width', overValue+'%');
+      $("#displayUser").empty();
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
+      $("#displaySpent").empty();
+      $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
+      $("#disclaimer").hide();
+      $("#transaction_input").hide();
+      $("#userInfo").hide();
+      $("#userBudget").show();
+    } else {
+      var returnUserProgress = (returnUser.spent / returnUser.budget) * 100;
+      $("#displayUser").empty();
+      $("#displayUser").append("<h3 id='displayUserh3'>" + returnUser.name + "'s Budget:   " + returnUser.budget + "<h3>");
+      $("#displaySpent").empty();
+      $("#displaySpent").append("<h4>" + "Spent: " + returnUser.spent + "<h4>");
+      $("#disclaimer").hide();
+      $("#transaction_input").hide();
+      $("#userInfo").hide();
+      $("#userBudget").show();
+      $(".progress-bar").css('width', returnUserProgress+'%');
+    }
+
   }
   console.log(localStorage);
-  $("#userBudget").hide();
+  // $("#userBudget").hide();
 
   $("#over21").click(function(event) {
     event.preventDefault();
@@ -68,8 +94,9 @@ $(document).ready(function() {
       $("#displayUser").append("<h3 id='content'>" + returnUser.name + "</h3>" + "<br>" + "<h4>" + "Budget Amount: $" + returnUser.budget + "</h4>");
       $("#displaySpent").empty();
       $("#displaySpent").append("<h4>" + "Amount Spent: $" + returnUser.spent + "</h4>");
-      $("#transaction_input").show();
+      $("#transaction_input").hide();
       $("#userInfo").hide();
+      $("#userBudget").show();
 
       console.log(returnUser);
       console.log(localStorage);
@@ -98,6 +125,7 @@ $(document).ready(function() {
         $("#displaySpent").append("<h4>" + "Amount Spent: " + returnUser.spent + "<h4>");
         $("#userBudget").show();
         $("#transaction_input").hide();
+        $("#newTransactionBtnCont").show();
         localStorage.setObject('returnUser', returnUser);
 
         console.log(newAmount);
@@ -113,12 +141,13 @@ $(document).ready(function() {
     }
 
     var spentValue = 0;
-    var overValue =0;
-    if (newAmount > spentValue && newAmount < returnUser.budget) {
+    var overValue = 0;
+    if (newAmount === returnUser.budget) {
+      $("#underBudget").css('width', 100+'%');
+    } else if (newAmount > spentValue && newAmount < returnUser.budget) {
       spentValue = (newAmount / returnUser.budget) * 100;
       $("#underBudget").css('width', spentValue+'%');
     } else if (newAmount > returnUser.budget) {
-
       overValue = (((newAmount - returnUser.budget) / returnUser.budget) * 100) * 0.1;
         if (overValue < 25) {
           $("#underBudget").css('width', 75+'%');
@@ -126,12 +155,10 @@ $(document).ready(function() {
         } else {
           alert("You are too far over budget. What's the point?")
         }
-
     }
 
 
-    console.log(spentValue);
-    console.log(overValue);
+
   })
 
   $("#resetStorage").click(function(event) {
@@ -148,6 +175,7 @@ $(document).ready(function() {
       $("#newSpent").val("");
       $("#transaction_input").hide();
       $("#userInfo").show();
+      $("#userBudget").hide();
     }
 
 
@@ -157,7 +185,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     $("#transaction_input").show();
-
+    $("#newTransactionBtnCont").hide()
   })
 
 });
