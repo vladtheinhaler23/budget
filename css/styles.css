@@ -265,6 +265,22 @@ body {
   cursor: pointer;
   text-shadow: 2px 2px black;
 }
+#newBudgetBtnLabel  {
+  margin-top: 5px;
+  color: black;
+  display: block;
+  font-size: 30px;
+  text-shadow: 2px 2px #bcdb93;
+  max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#newBudgetBtnLabel:hover {
+  color: #bcdb93;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+}
 #newSpentBtn {
   border: 5px solid gray;
   border-radius: 50%;
@@ -365,6 +381,31 @@ body {
 
 }
 #newMonthBtn:focus {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+  margin-top: 25px;
+  outline: none;
+  box-shadow: 0px 0px 4px 2px lightblue;
+}
+
+#newBudgetBtn {
+  border: 5px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 25px;
+
+
+}
+#newBudgetBtn:hover {
+  border-radius: 50%;
+  border: 5px solid #bcdb93;
+  padding: 10px;
+  margin-top: 25px;
+
+}
+#newBudgetBtn:focus {
   border-radius: 50%;
   border: 5px solid #bcdb93;
   padding: 10px;
